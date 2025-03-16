@@ -73,7 +73,7 @@ class CategoryView extends StatelessWidget {
                     RightToLeftPageRoute(
                       builder:
                           (context) =>
-                              const CategoryDetailsView(name: 'Entertaiment'),
+                              const CategoryDetailsView(name: 'Entertainment'),
                     ),
                   );
                 },

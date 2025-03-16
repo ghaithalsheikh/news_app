@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news/WebView/test_webview.dart';
+import 'package:news/WebView/webview.dart';
 import 'package:news/models/articles_model.dart';
 import 'package:news/widgets/navigate_right_to_left.dart';
 import 'package:shimmer/shimmer.dart';
@@ -139,14 +139,19 @@ class DetailsNewsTileView extends StatelessWidget {
                       ),
                       SizedBox(height: ScreenUtil().setHeight(10)),
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text(
-                            tr('Author: '),
-                            style: TextStyle(fontSize: ScreenUtil().setSp(12)),
-                          ),
-                          Text(
-                            articleModel.author ?? 'DAVID SHARP',
-                            style: TextStyle(fontSize: ScreenUtil().setSp(12)),
+                          Expanded(
+                            child: Text(
+                              softWrap: true,
+                              maxLines: 5,
+                              overflow: TextOverflow.visible,
+                              tr('Author: ') +
+                                  (articleModel.author ?? 'DAVID SHARP'),
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(12),
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -158,6 +163,8 @@ class DetailsNewsTileView extends StatelessWidget {
                             style: TextStyle(fontSize: ScreenUtil().setSp(12)),
                           ),
                           Text(
+                            maxLines: 5,
+                            overflow: TextOverflow.visible,
                             articleModel.source ?? 'BBC News',
                             style: TextStyle(fontSize: ScreenUtil().setSp(12)),
                           ),
